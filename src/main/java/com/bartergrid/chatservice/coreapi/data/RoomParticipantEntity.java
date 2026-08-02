@@ -39,6 +39,7 @@ public class RoomParticipantEntity {
 
     private String userId;
 
+    @Enumerated(EnumType.STRING)
     private RoomRole roomRole;
 
     private String lastReadMessageId;

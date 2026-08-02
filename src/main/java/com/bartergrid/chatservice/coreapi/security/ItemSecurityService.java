@@ -2,12 +2,9 @@ package com.bartergrid.chatservice.coreapi.security;
 
 import com.bartergrid.chatservice.coreapi.data.MessageEntity;
 import com.bartergrid.chatservice.coreapi.service.interfaces.IMessageService;
-import com.bartergrid.core.service.interfaces.IUserProfileLookup;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 import static com.bartergrid.core.security.JwtAuthorities.JwtUtils.extractUserId;
 
@@ -64,6 +61,6 @@ public class ItemSecurityService {
             return false;
         }
 
-        return userId.equals(item.getUserId());
+        return userId.equals(item.getRoomParticipant().getUserId());
     }
 }

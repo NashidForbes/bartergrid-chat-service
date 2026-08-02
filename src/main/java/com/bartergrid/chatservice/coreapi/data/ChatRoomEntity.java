@@ -24,9 +24,7 @@ import java.time.Instant;
 @Table(name = "chat_room", indexes = {
 /** The index idx_item_pagination_cursor will be created automatically
  from KeysetPaginableEntity (the parent class in core library) **/
-        @Index(name = "idx_order_order_status", columnList = "order_status"),
-        @Index(name = "idx_order_created_at", columnList = "created_at"),
-        @Index(name = "idx_order_updated_at", columnList = "updated_at")
+        @Index(name = "idx_relationship_direct_hash", columnList = "relationship_direct_hash")
 }) // Changed from "order" which is a reserved SQL keyword
 @PaginationCursorEntity
 public class ChatRoomEntity implements Serializable {
@@ -43,9 +41,10 @@ public class ChatRoomEntity implements Serializable {
     @Column(updatable = false)
     private String chatRoomId;
 
+    @Enumerated(EnumType.STRING)
     private RoomType roomType;
 
-    private String tradeId;
+    private String tradeId; // Links the conversation to an active trade/listing aggregate in Axon, refer to Barter-service
 
     private String title;
 
@@ -57,7 +56,8 @@ public class ChatRoomEntity implements Serializable {
     /*** Deterministic key for 1:1 lookup (e.g., hash(min(userA, userB) + max(userA, userB) + trade_id)) ***/
     private String relationshipDirectHash;
 
-    private RoomStatus roomStatus;
+    @Enumerated(EnumType.STRING)
+    private RoomStatus roomStatus; // 'ACTIVE', 'LOCKED', 'ARCHIVED'
 
     /**
      * The timestamp when the item was created.
@@ -73,5 +73,5 @@ public class ChatRoomEntity implements Serializable {
 
     @Column(nullable = true, columnDefinition = "jsonb")
     @JdbcTypeCode(SqlTypes.JSON)
-    private JsonNode metaData;
+    private JsonNode metaData;  // Additional metadata for the item, can be used for custom fields or even business logic
 }
