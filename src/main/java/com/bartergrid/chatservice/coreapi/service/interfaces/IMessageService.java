@@ -9,6 +9,6 @@ public interface IMessageService {
     MessageEntity save(MessageEntity messageEntity);
     List<MessageEntity> findByMessageContainingIgnoreCase(String title);
     List<MessageEntity> findAll(Pageable pageable);
-    MessageEntity findByChatRoomId(String chatRoomId);
+    List<MessageEntity> findByChatRoomId(String chatRoomId);
     MessageEntity findByMessageId(String messageId);
 }
