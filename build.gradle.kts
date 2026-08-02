@@ -2,15 +2,14 @@ plugins {
     java
     // Bump Kotlin to 1.9.24+ or 2.0+
     id("org.jetbrains.kotlin.jvm") version "2.0.0"
-
     // Bump Spring Boot & Dependency Management
-    id("org.springframework.boot") version "3.3.2"
+    id("org.springframework.boot") version "3.3.0"
     id("io.spring.dependency-management") version "1.1.6"
 }
 
 group = "com.bartergrid"
 version = "0.0.1-SNAPSHOT"
-description = "hedera microservice"
+description = "chat microservice"
 
 java {
     java.sourceCompatibility = JavaVersion.VERSION_17
