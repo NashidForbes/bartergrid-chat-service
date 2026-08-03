@@ -1,19 +1,18 @@
 package com.bartergrid.chatservice.coreapi.service;
 
 import com.bartergrid.chatservice.coreapi.data.ChatRoomEntity;
-import com.bartergrid.chatservice.coreapi.data.interfaces.IChatRoomEntityRepository;
-import com.bartergrid.chatservice.coreapi.service.interfaces.IChatRoomService;
+import com.bartergrid.chatservice.coreapi.data.interfaces.IChatRoomService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class ChatRoomServiceImpl implements IChatRoomService {
+public class ChatRoomServiceImpl implements com.bartergrid.chatservice.coreapi.service.interfaces.IChatRoomService {
 
-    private final IChatRoomEntityRepository chatRoomEntityRepository;
+    private final IChatRoomService chatRoomEntityRepository;
 
-    ChatRoomServiceImpl(IChatRoomEntityRepository chatRoomEntityRepository) {
+    ChatRoomServiceImpl(IChatRoomService chatRoomEntityRepository) {
         this.chatRoomEntityRepository = chatRoomEntityRepository;
     }
 

@@ -54,7 +54,7 @@ public class ChatRoomEntity implements Serializable {
     the existing room ID if it already exists. ***/
 
     /*** Deterministic key for 1:1 lookup (e.g., hash(min(userA, userB) + max(userA, userB) + trade_id)) ***/
-    private String relationshipDirectHash;
+    private String directHash;
 
     @Enumerated(EnumType.STRING)
     private ChatRoomStatus chatRoomStatus; // 'ACTIVE', 'LOCKED', 'ARCHIVED'

@@ -13,6 +13,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.time.Instant;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -37,23 +39,27 @@ public class MessageEntity {
    /**
     * The chatroom information associated with the message.
     */
-   @OneToOne(fetch = FetchType.EAGER, optional = false, targetEntity = ChatRoomEntity.class, cascade = CascadeType.ALL,
-           orphanRemoval = true)
+   @ManyToOne(fetch = FetchType.EAGER, optional = false, targetEntity = ChatRoomEntity.class)
    @JoinColumn(name = "chatroom_chatroom_id", nullable = false)
    @JsonManagedReference
-   private ChatRoomEntity chatRoom; // References chat_rooms.id 1:1 relationship
+   private ChatRoomEntity chatRoom; // References chat_rooms.id N:1 relationship
 
 
-   @OneToOne(fetch = FetchType.EAGER, optional = false, targetEntity = RoomParticipantEntity.class, cascade = CascadeType.ALL,
-           orphanRemoval = true)
+   @ManyToOne(fetch = FetchType.EAGER, optional = false, targetEntity = RoomParticipantEntity.class)
    @JoinColumn(name = "sender_user_id", nullable = false)
    @JsonManagedReference
-   private RoomParticipantEntity roomParticipant; // sender: References users_id (or SYSTEM ID for bot alerts) n:1 relationship
+   private RoomParticipantEntity roomParticipant; // sender: References room_participant N:1 relationship
 
    @Enumerated(EnumType.STRING)
    private MessageType messageType; // 'TEXT', 'SYSTEM_ALERT', 'OFFER_PROPOSAL', 'DEAL_TRIGGER', 'VIDEO', 'AUDIO'
 
    private String message;
+
+   /**
+    * The timestamp when the item was last updated.
+    */
+   @Column(nullable = false)
+   private Instant createdAt;
 
    @Column(nullable = true, columnDefinition = "jsonb")
    @JdbcTypeCode(SqlTypes.JSON)

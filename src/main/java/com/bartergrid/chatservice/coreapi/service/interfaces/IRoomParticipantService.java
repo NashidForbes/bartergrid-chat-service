@@ -13,4 +13,5 @@ public interface IRoomParticipantService {
     RoomParticipantEntity save(RoomParticipantEntity roomParticipantEntity);
     RoomParticipantEntity findByChatRoom(ChatRoomEntity chatRoom);
     RoomParticipantEntity findByUserIdAndChatRoomId(String userId, String chatRoomId);
+    void delete(RoomParticipantEntity roomParticipantEntity);
 }

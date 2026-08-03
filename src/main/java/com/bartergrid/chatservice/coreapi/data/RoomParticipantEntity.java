@@ -36,8 +36,7 @@ public class RoomParticipantEntity {
     @Column(updatable = false)
     private String roomParticipantId;
 
-    @OneToOne(fetch = FetchType.EAGER, optional = false, targetEntity = ChatRoomEntity.class, cascade = CascadeType.ALL,
-            orphanRemoval = true)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false, targetEntity = ChatRoomEntity.class)
     @JoinColumn(name = "chat_room_id", nullable = false)
     @JsonManagedReference
     private ChatRoomEntity chatRoom;

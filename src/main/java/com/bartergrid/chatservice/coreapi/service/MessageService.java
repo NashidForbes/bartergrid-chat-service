@@ -1,8 +1,7 @@
 package com.bartergrid.chatservice.coreapi.service;
 
 import com.bartergrid.chatservice.coreapi.data.MessageEntity;
-import com.bartergrid.chatservice.coreapi.data.interfaces.IMessageEntityRepository;
-import com.bartergrid.chatservice.coreapi.service.interfaces.IMessageService;
+import com.bartergrid.chatservice.coreapi.data.interfaces.IMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,11 +10,11 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class MessageService implements IMessageService {
+public class MessageService implements com.bartergrid.chatservice.coreapi.service.interfaces.IMessageService {
 
-    private final IMessageEntityRepository messageEntityRepository;
+    private final IMessageService messageEntityRepository;
 
-    public MessageService(IMessageEntityRepository messageEntityRepository) {
+    public MessageService(IMessageService messageEntityRepository) {
         this.messageEntityRepository = messageEntityRepository;
     }
 

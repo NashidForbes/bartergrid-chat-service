@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Repository
-public interface IMessageEntityRepository extends JpaRepository<MessageEntity, String> {
+public interface IMessageService extends JpaRepository<MessageEntity, String> {
     Set<MessageEntity> findByMessageContainingIgnoreCase(String message);
     Set<MessageEntity> findByMessageType(MessageType messageType);
     MessageEntity findByMessageId(String messageId);
