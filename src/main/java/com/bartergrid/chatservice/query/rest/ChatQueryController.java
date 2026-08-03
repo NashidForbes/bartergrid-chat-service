@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/chatchannel")
+@RequestMapping("/chat")
 public class ChatQueryController {
 
     public ChatQueryController() {
