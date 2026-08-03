@@ -2,8 +2,8 @@ package com.bartergrid.chatservice.coreapi.data;
 
 import com.bartergrid.core.config.interfaces.PaginationCursorEntity;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.bartergrid.chatservice.coreapi.model.RoomStatus;
-import com.bartergrid.chatservice.coreapi.model.RoomType;
+import com.bartergrid.chatservice.coreapi.model.ChatRoomStatus;
+import com.bartergrid.chatservice.coreapi.model.ChatRoomType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,7 +42,7 @@ public class ChatRoomEntity implements Serializable {
     private String chatRoomId;
 
     @Enumerated(EnumType.STRING)
-    private RoomType roomType;
+    private ChatRoomType chatRoomType;
 
     private String tradeId; // Links the conversation to an active trade/listing aggregate in Axon, refer to Barter-service
 
@@ -57,7 +57,7 @@ public class ChatRoomEntity implements Serializable {
     private String relationshipDirectHash;
 
     @Enumerated(EnumType.STRING)
-    private RoomStatus roomStatus; // 'ACTIVE', 'LOCKED', 'ARCHIVED'
+    private ChatRoomStatus chatRoomStatus; // 'ACTIVE', 'LOCKED', 'ARCHIVED'
 
     /**
      * The timestamp when the item was created.

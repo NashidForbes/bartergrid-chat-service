@@ -1,8 +1,9 @@
 package com.bartergrid.chatservice.coreapi.service;
 
+import com.bartergrid.chatservice.coreapi.data.ChatRoomEntity;
 import com.bartergrid.chatservice.coreapi.data.RoomParticipantEntity;
 import com.bartergrid.chatservice.coreapi.data.interfaces.IRoomParticipantEntityRepository;
-import com.bartergrid.chatservice.coreapi.model.RoomRole;
+import com.bartergrid.chatservice.coreapi.model.ChatRoomRole;
 import com.bartergrid.chatservice.coreapi.service.interfaces.IRoomParticipantService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,8 @@ public class RoomParticipantService implements IRoomParticipantService {
     }
 
     @Override
-    public Set<RoomParticipantEntity> findByRoomRole(RoomRole roomRole) {
-        return roomParticipantEntityRepository.findByRoomRole(roomRole);
+    public Set<RoomParticipantEntity> findByRoomRole(ChatRoomRole chatRoomRole) {
+        return roomParticipantEntityRepository.findByRoomRole(chatRoomRole);
     }
 
     @Override
@@ -37,5 +38,15 @@ public class RoomParticipantService implements IRoomParticipantService {
     @Override
     public RoomParticipantEntity save(RoomParticipantEntity roomParticipantEntity) {
         return roomParticipantEntityRepository.save(roomParticipantEntity);
+    }
+
+    @Override
+    public RoomParticipantEntity findByChatRoom(ChatRoomEntity chatRoom) {
+        return roomParticipantEntityRepository.findByChatRoom(chatRoom);
+    }
+
+    @Override
+    public RoomParticipantEntity findByUserIdAndChatRoomId(String userId, String chatRoomId) {
+        return roomParticipantEntityRepository.findByUserIdAndChatRoomId(userId, chatRoomId);
     }
 }

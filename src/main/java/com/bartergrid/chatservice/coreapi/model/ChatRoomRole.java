@@ -1,5 +1,5 @@
 package com.bartergrid.chatservice.coreapi.model;
 
-public enum RoomRole {
+public enum ChatRoomRole {
     MEMBER, SELLER, BIDDER, MODERATOR
 }

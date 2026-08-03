@@ -1,8 +1,9 @@
 package com.bartergrid.chatservice.coreapi.data;
 
 import com.bartergrid.core.config.interfaces.PaginationCursorEntity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.bartergrid.chatservice.coreapi.model.RoomRole;
+import com.bartergrid.chatservice.coreapi.model.ChatRoomRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,12 +36,16 @@ public class RoomParticipantEntity {
     @Column(updatable = false)
     private String roomParticipantId;
 
-    private String roomId;
+    @OneToOne(fetch = FetchType.EAGER, optional = false, targetEntity = ChatRoomEntity.class, cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JoinColumn(name = "chat_room_id", nullable = false)
+    @JsonManagedReference
+    private ChatRoomEntity chatRoom;
 
     private String userId;
 
     @Enumerated(EnumType.STRING)
-    private RoomRole roomRole;
+    private ChatRoomRole chatRoomRole;
 
     private String lastReadMessageId;
 
