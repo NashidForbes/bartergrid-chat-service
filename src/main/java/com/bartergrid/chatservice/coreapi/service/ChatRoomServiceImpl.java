@@ -3,6 +3,7 @@ package com.bartergrid.chatservice.coreapi.service;
 import com.bartergrid.chatservice.coreapi.data.ChatRoomEntity;
 import com.bartergrid.chatservice.coreapi.data.interfaces.IChatRoomService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +23,13 @@ public class ChatRoomServiceImpl implements com.bartergrid.chatservice.coreapi.s
     }
 
     @Override
-    public Pageable findByTitleContainingIgnoreCase(String title, Pageable pageable) {
+    public Page<ChatRoomEntity> findByTitleContainingIgnoreCase(String title, Pageable pageable) {
         return chatRoomEntityRepository.findByTitleContainingIgnoreCase(title, pageable);
     }
 
     @Override
-    public Pageable findAll(Pageable pageable) {
-        return (Pageable) chatRoomEntityRepository.findAll();
+    public Page<ChatRoomEntity> findAll(Pageable pageable) {
+        return chatRoomEntityRepository.findAll(pageable);
     }
 
     @Override
