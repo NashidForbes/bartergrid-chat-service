@@ -1618,36 +1618,36 @@ erDiagram
 ```java
 // Chat Room Created
 public record ChatRoomCreatedEvent(
-                @TargetAggregateIdentifier UUID roomId,
-                RoomType type,
-                UUID tradeId,
-                String title,
-                String directHash,
-                UUID createdBy,
-                Instant timestamp
-        ) {}
+    @TargetAggregateIdentifier UUID roomId,
+    RoomType type,
+    UUID tradeId,
+    String title,
+    String directHash,
+    UUID createdBy,
+    Instant timestamp
+) {}
 
 // Chat Message Sent
 public record ChatMessageSentEvent(
-        @TargetAggregateIdentifier UUID roomId,
-        UUID messageId,
-        UUID senderId,
-        MessageType type,
-        String content,
-        UUID mediaId,
-        String mediaUrl,
-        Map<String, Object> metadata,
-        Instant timestamp
+    @TargetAggregateIdentifier UUID roomId,
+    UUID messageId,
+    UUID senderId,
+    MessageType type,
+    String content,
+    UUID mediaId,
+    String mediaUrl,
+    Map<String, Object> metadata,
+    Instant timestamp
 ) {}
 
 // Intent Trigger Detected
 public record TradeDealPhraseDetectedEvent(
-        @TargetAggregateIdentifier UUID roomId,
-        UUID tradeId,
-        UUID messageId,
-        UUID triggeredByUserId,
-        String matchedPhrase,
-        Instant timestamp
+    @TargetAggregateIdentifier UUID roomId,
+    UUID tradeId,
+    UUID messageId,
+    UUID triggeredByUserId,
+    String matchedPhrase,
+    Instant timestamp
 ) {}
 ```
 
