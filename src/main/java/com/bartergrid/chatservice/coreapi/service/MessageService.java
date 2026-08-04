@@ -35,7 +35,7 @@ public class MessageService implements com.bartergrid.chatservice.coreapi.servic
 
     @Override
     public List<MessageEntity> findByChatRoomId(String chatRoomId) {
-        return messageEntityRepository.findByChatRoomId(chatRoomId);
+        return messageEntityRepository.findByChatRoomChatRoomId(chatRoomId);
     }
 
     @Override

@@ -47,7 +47,7 @@ public class RoomParticipantService implements IRoomParticipantService {
 
     @Override
     public RoomParticipantEntity findByUserIdAndChatRoomId(String userId, String chatRoomId) {
-        return roomParticipantEntityRepository.findByUserIdAndChatRoomId(userId, chatRoomId);
+        return roomParticipantEntityRepository.findByUserIdAndChatRoomChatRoomId(userId, chatRoomId);
     }
 
     @Override

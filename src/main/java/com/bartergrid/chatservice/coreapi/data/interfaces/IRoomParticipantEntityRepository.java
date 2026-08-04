@@ -14,5 +14,5 @@ public interface IRoomParticipantEntityRepository extends JpaRepository<RoomPart
      Set<RoomParticipantEntity> findByUserId(String userId);
      RoomParticipantEntity findByLastReadMessageId(String userId);
      RoomParticipantEntity findByChatRoom(ChatRoomEntity chatRoom);
-     RoomParticipantEntity findByUserIdAndChatRoomId(String userId, String chatRoomId);
+     RoomParticipantEntity findByUserIdAndChatRoomChatRoomId(String userId, String chatRoomId);
 }

@@ -13,5 +13,5 @@ public interface IMessageService extends JpaRepository<MessageEntity, String> {
     Set<MessageEntity> findByMessageContainingIgnoreCase(String message);
     Set<MessageEntity> findByMessageType(MessageType messageType);
     MessageEntity findByMessageId(String messageId);
-    List<MessageEntity> findByChatRoomId(String chatRoomId);
+    List<MessageEntity> findByChatRoomChatRoomId(String chatRoomId);
 }
