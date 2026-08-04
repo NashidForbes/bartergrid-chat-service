@@ -75,6 +75,8 @@ dependencies {
     implementation("com.hedera.hashgraph:sdk-full:2.60.0")
     //implementation("org.apache.commons:commons-lang3:3.12.0")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.springframework:spring-messaging:7.0.8")
+    implementation("org.springframework:spring-websocket:7.0.8")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     implementation("org.javers:javers-spring-boot-starter-sql:7.7.0")
