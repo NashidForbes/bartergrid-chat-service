@@ -22,7 +22,7 @@ public class RoomParticipantService implements IRoomParticipantService {
 
     @Override
     public Set<RoomParticipantEntity> findByRoomRole(ChatRoomRole chatRoomRole) {
-        return roomParticipantEntityRepository.findByRoomRole(chatRoomRole);
+        return roomParticipantEntityRepository.findByChatRoomRole(chatRoomRole);
     }
 
     @Override
